@@ -4,36 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Google Vision Test</title>
-    
-    <!-- Firebase CDN-->
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-storage.js"></script>
-    <script src="init.js"></script>
-    <script src="authentication.js"></script>    
+    <title>Google Vision Demo</title>
+    <!-- Firebase Init-->
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <script src="init.js"></script>
+    <!-- FirebaseUI Web -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css"rel="stylesheet"href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+        signInSuccessUrl: 'vision.html',
+        signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+        };
+        
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+ 
 </head>
-<body onload="checkSignIn()">
-    <h1>Sign In</h1>
-    Status: <div id="signinStatus">Not Signed In Yet</div><br>
-    <div id="signinGroup">
-        <div onclick="doSignIn('google');">[Google]</div>
-        <div onclick="doSignIn('facebook');">[Facebook]</div>
-    </div>
-    <div id="signoutGroup">
-        <div onclick="doSignOut()">[Sign Out]</div>
-    </div>
-    <hr>
-    
-    <h1>Storage</h1>
-    <h2>File Upload</h2>
-        <progress value=0 max="100" id="uploader"></progress><br>
-        <input type="file" value="upload" id="fileButton">
-        <script src="storage.js"></script>
-    <h2>Read from Storage </h2>
-        <img src="" alt="" id="targetImage">
-    <hr>
-    
+<body>
+    <div id="firebaseui-auth-container"></div>    
 </body>
 </html>
