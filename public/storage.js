@@ -18,7 +18,7 @@ fileButton.addEventListener('change', function(e){
             },
             null,
             function complete(){                                
-                console.log('upload completed ' + storageRef.fullPath );     
+                console.log('upload completed ' + storageRef.fullPath );  
                 storageRef.getDownloadURL().then(function(url){
                     document.getElementById("targetImage").src = url;
                 });                     
