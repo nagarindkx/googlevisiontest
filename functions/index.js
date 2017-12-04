@@ -24,8 +24,9 @@ exports.myvision = functions.https.onRequest((request, response) => {
     // Imports the Google Cloud client library
      const vision = require('@google-cloud/vision');
      const client = new vision.ImageAnnotatorClient();
-     const imageUri = "http://www.petmd.com/sites/default/files/what-does-it-mean-when-cat-wags-tail.jpg";
      
+     //const imageUri = "http://www.petmd.com/sites/default/files/what-does-it-mean-when-cat-wags-tail.jpg";
+     const imageUri = request.body.url;
      client.labelDetection({image:{source:{ imageUri : imageUri} }}).then(function(results){
         
         const labels = results[0].labelAnnotations;

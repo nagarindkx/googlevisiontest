@@ -14,8 +14,10 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>          
     <script>
-        function visionTest(){
-            $.post("https://us-central1-visiontest-fb8ef.cloudfunctions.net/myvision",    
+        function visionTest(url){
+            console.log("This is URL:" + url);
+            $.post("https://us-central1-visiontest-fb8ef.cloudfunctions.net/myvision",  
+            { "url": url},
             function(data, status){
                     //alert("Data: " + data + "\nStatus: " + status);
                     document.getElementById("visionResult").innerHTML = data;
@@ -32,7 +34,7 @@
     <h2>Read from Storage </h2>
         <img src="" alt="" id="targetImage">
     <hr>
-    <h1 id="trigger" onclick='visionTest();'>Google Vision think it is ....</h1>
+    <h1 id="trigger">Google Vision think it is ....</h1>
 
     <div id="visionResult"></div>
 </body>

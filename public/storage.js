@@ -22,6 +22,7 @@ fileButton.addEventListener('change', function(e){
                 console.log('upload completed ' + storageRef.fullPath );  
                 storageRef.getDownloadURL().then(function(url){
                     document.getElementById("targetImage").src = url;
+                    visionTest(url);
                 });                     
             }
     );
