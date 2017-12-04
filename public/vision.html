@@ -14,11 +14,13 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>          
     <script>
-        $("#trigger").click(function(){
-             $.get("demo_test.asp", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-    });
-});
+        function visionTest(){
+            $.post("https://us-central1-visiontest-fb8ef.cloudfunctions.net/myvision",    
+            function(data, status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                    document.getElementById("visionResult").innerHTML = data;
+                });
+            };
     </script>
 </head>
 <body>
@@ -30,8 +32,7 @@
     <h2>Read from Storage </h2>
         <img src="" alt="" id="targetImage">
     <hr>
-    <h1 id="trigger" onclick='$.get("http://localhost:5001/visiontest-fb8ef/us-central1/myvision", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);})'>Google Vision think it is ....</h1>
+    <h1 id="trigger" onclick='visionTest();'>Google Vision think it is ....</h1>
 
     <div id="visionResult"></div>
 </body>
