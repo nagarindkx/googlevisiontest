@@ -15,11 +15,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>          
     <script>
         function visionTest(url){
-            console.log("This is URL:" + url);
-            $.post("https://us-central1-visiontest-fb8ef.cloudfunctions.net/myvision",  
+            // CHANG HERE //
+            var functionUrl="https://your-origin-your-project-id.cloudfunctions.net/myVision";            
+            $.post(functionUrl,  
             { "url": url},
-            function(data, status){
-                    //alert("Data: " + data + "\nStatus: " + status);
+            function(data, status){                    
                     document.getElementById("visionResult").innerHTML = data;
                 });
             };
