@@ -7,11 +7,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 fileButton.addEventListener('change', function(e){
-    //console.log(">>>" + e.target.files[0].name);
     var file = e.target.files[0];
-    
     var task = storageRef.put(file);
-
     task.on('state_changed',
             function progress(snapshot){
                 var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;

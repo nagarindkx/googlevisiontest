@@ -16,7 +16,7 @@ const functions = require('firebase-functions');
 // });
 
 exports.sampleFunction = functions.https.onRequest((req,resp)=> {
-    //resp.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');
+    response.setHeader('Access-Control-Allow-Origin', config.authDomain);
     resp.status(200).send("<h1>Hello</h1>");
 });
 
@@ -24,8 +24,6 @@ exports.myvision = functions.https.onRequest((request, response) => {
     // Imports the Google Cloud client library
      const vision = require('@google-cloud/vision');
      const client = new vision.ImageAnnotatorClient();
-     
-     //const imageUri = "http://www.petmd.com/sites/default/files/what-does-it-mean-when-cat-wags-tail.jpg";
      const imageUri = request.body.url;
      client.labelDetection({image:{source:{ imageUri : imageUri} }}).then(function(results){
         
@@ -34,7 +32,7 @@ exports.myvision = functions.https.onRequest((request, response) => {
         labels.forEach(function(label){
             txt = txt + "</br>" + label.description;
             });
-        response.setHeader('Access-Control-Allow-Origin', "https://visiontest-fb8ef.firebaseapp.com");
+        response.setHeader('Access-Control-Allow-Origin', config.authDomain);
         response.send(txt);                
         }).catch((error)=>{txt=error});
     }) ;
