@@ -1,3 +1,5 @@
+//import { firestore } from 'firebase-admin';
+
 const functions = require('firebase-functions');
 // const testvision    = require("./vision");
 

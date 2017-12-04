@@ -1,6 +1,7 @@
 var uploader = document.getElementById("uploader");
 var fileButton = document.getElementById("fileButton");
 var storageRef;
+
 firebase.auth().onAuthStateChanged(function(user) {
     storageRef = firebase.storage().ref('images/' + user.uid + '/target.png');
 });
