@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Google Vision Demo</title>
+    <!-- Firebase CDN-->
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-storage.js"></script>
+    <script src="init.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>          
+    <script>
+        $("#trigger").click(function(){
+             $.get("demo_test.asp", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+});
+    </script>
+</head>
+<body>
+    <h1>Storage</h1>
+    <h2>File Upload</h2>
+       <progress value=0 max="100" id="uploader"></progress><br>
+       <input type="file" value="upload" id="fileButton">
+       <script src="storage.js"></script>
+    <h2>Read from Storage </h2>
+        <img src="" alt="" id="targetImage">
+    <hr>
+    <h1 id="trigger" onclick='$.get("http://localhost:5001/visiontest-fb8ef/us-central1/myvision", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);})'>Google Vision think it is ....</h1>
+
+    <div id="visionResult"></div>
+</body>
+</html>
