@@ -1,8 +1,11 @@
 # googlevisiontest
 Demo Google Vision with Firebase
 
+
 After clone
 ```
+git clone https://github.com/nagarindkx/googlevisiontest.git
+cd googlevisiontest
 npm install -g firebase-tools
 firebase init
 cd functions
