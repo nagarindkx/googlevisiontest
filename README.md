@@ -1,8 +1,6 @@
 # googlevisiontest
 Demo Google Vision with Firebase
 
-
-After clone
 ```
 git clone https://github.com/nagarindkx/googlevisiontest.git
 cd googlevisiontest
